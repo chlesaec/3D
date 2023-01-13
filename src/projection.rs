@@ -39,15 +39,15 @@ impl<'a, const N: usize> Projection<N> for Screen {
 
 impl ToRealScreen for Screen {
     fn place(&self, point_2d: &Point<2>) -> Pos2 {
-        let absPoint: Point<2> = Point {
+        let abs_point: Point<2> = Point {
             coords: [
                 point_2d.coords[0] + self.center.coords[0],
                 point_2d.coords[1] + self.center.coords[1],
             ],
         };
         return Pos2::new(
-            (absPoint.coords[0] + (self.size[0] as i64 / 2)) as f32,
-            ((self.size[1] as i64 / 2) - absPoint.coords[1]) as f32,
+            (abs_point.coords[0] + (self.size[0] as i64 / 2)) as f32,
+            ((self.size[1] as i64 / 2) - abs_point.coords[1]) as f32,
         );
     }
 }
